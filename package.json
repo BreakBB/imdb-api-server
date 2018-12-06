@@ -1,8 +1,7 @@
 {
-  "name": "imdb_rating_server",
-  "version": "0.0.1",
+  "name": "imdb-api-server",
+  "version": "0.0.2",
   "dependencies": {
-    "body-parser": "latest",
     "express": "^4.16.4",
     "imdb-api": "^4.0.2"
   }

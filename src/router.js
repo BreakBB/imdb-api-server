@@ -1,11 +1,11 @@
 'use strict';
 const express = require('express');
-const bodyParser = require('body-parser');
 const router = express.Router();
 
 // IMDB routes
 const handles = require('./handles/mainHandles');
-router.post('/imdb', bodyParser.json(), handles.handleRating);
+router.post('/rating', handles.handleRating);
 
+router.post('/genres', handles.handleGenres);
 
 module.exports = router;

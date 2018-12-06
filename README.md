@@ -1,7 +1,19 @@
-# imdb_api_server
+# imdb-api-server
 
 This project allows the use of the [node-imdb-api](https://github.com/worr/node-imdb-api) project as http server.
-Currently only the imdb rating is extracted and supported.
+Currently only the imdb rating and genres can be extracted.
+
+## Supported endpoints
+
+### /api/rating
+
+Parameter:
+```{"title": "<yourMovieTitle>"``` returns the rating to the given title
+
+### /api/genres
+Parameter:
+```{"title": "<yourMovieTitle>"``` returns the genres to the given title as a list
+
 
 ## Requirements
 
