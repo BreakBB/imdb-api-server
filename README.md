@@ -5,14 +5,14 @@ Currently only the imdb rating and genres can be extracted.
 
 ## Supported endpoints
 
-### /api/rating
+### POST /api/rating
 
 Parameter:
-```{"title": "<yourMovieTitle>"``` returns the rating to the given title
+```{"title": "<yourMovieTitle>}"``` returns the rating to the given title
 
-### /api/genres
+### POST /api/genres
 Parameter:
-```{"title": "<yourMovieTitle>"``` returns the genres to the given title as a list
+```{"title": "<yourMovieTitle>}"``` returns the genres to the given title as a list
 
 
 ## Requirements
