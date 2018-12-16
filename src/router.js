@@ -1,11 +1,15 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
+const getData = require('./imdbQuery').getData;
 
-// IMDB routes
-const handles = require('./handles/mainHandles');
-router.post('/rating', handles.handleRating);
+router.post('/imdb', async (req, res) => {
+  const result = await getData(req.body.title, res);
 
-router.post('/genres', handles.handleGenres);
+  if(result != null){
+    res.status(200);
+    res.json(result);
+  }
+});
 
 module.exports = router;
