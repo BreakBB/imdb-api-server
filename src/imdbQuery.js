@@ -11,6 +11,8 @@ if (apiKeys.length === 0) {
 let countAPIKey = 0;
 let apiKey = apiKeys[countAPIKey];
 
+let requestCounter = 0;
+
 module.exports = {
   getData: async function getData(title, res) {
     // Check title parameter
@@ -25,11 +27,11 @@ module.exports = {
         {"name": title},
         {"apiKey": apiKey, "timeout": 30000});
 
-      console.log("Found data entry for:", title);
+      console.log(requestCounter + " - Found data entry for:", title);
       return result;
     }
     catch (err) {
-      console.error("Couldn't find data entry for:", title);
+      console.error(requestCounter + " - Couldn't find data entry for:", title);
 
       if (err.statusCode === 401) {
         if (apiKeys.length > countAPIKey) {
@@ -47,6 +49,9 @@ module.exports = {
       res.status(404);
       res.json(err);
       return null;
+    }
+    finally {
+      requestCounter++;
     }
   }
 };
