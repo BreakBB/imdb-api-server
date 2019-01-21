@@ -1,6 +1,6 @@
 'use strict';
 const express = require('express');
-let app = express();
+const app = express();
 const routes = require('./router');
 
 // setup the routes

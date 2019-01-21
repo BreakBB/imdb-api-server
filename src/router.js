@@ -10,6 +10,10 @@ router.post('/imdb', async (req, res) => {
     res.status(200);
     res.json(result);
   }
+  else {
+    res.status(500);
+    res.send("An unknown issue appeared.")
+  }
 });
 
 module.exports = router;

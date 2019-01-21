@@ -12,6 +12,6 @@ Parameter:
 
 ## Requirements
 
-- An API key for omdb (get one [here](http://www.omdbapi.com/apikey.aspx))
+- One or more API keys for the Open Movie Database (get one [here](http://www.omdbapi.com/apikey.aspx))
     - You have to store it in a ```src/api.key``` file
 - The packages listed in the package.json
