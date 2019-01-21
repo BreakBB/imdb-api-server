@@ -14,7 +14,7 @@ let apiKey = apiKeys[countAPIKey];
 let requestCounter = 0;
 
 module.exports = {
-  getData: async function getData(title, res) {
+  getData: async function getData(title) {
     try {
       const result = await imdb.get(
         {"name": title},

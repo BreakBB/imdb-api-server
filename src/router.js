@@ -13,7 +13,7 @@ router.post('/imdb', async (req, res) => {
     return;
   }
 
-  const result = await getData(title, res);
+  const result = await getData(title);
 
   if (result != null) {
     if (result.name === "imdb api error") {
