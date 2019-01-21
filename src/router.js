@@ -4,15 +4,26 @@ const router = express.Router();
 const getData = require('./imdbQuery').getData;
 
 router.post('/imdb', async (req, res) => {
-  const result = await getData(req.body.title, res);
+  const title = req.body.title;
+
+  // Check title parameter
+  if (title === undefined) {
+    res.status(400);
+    res.send("400: Bad Request - Request has to include 'title' parameter");
+    return;
+  }
+
+  const result = await getData(title, res);
 
   if (result != null) {
-    res.status(200);
+    if (result.name === "imdb api error") {
+      res.status(404);
+    }
+    else {
+      res.status(200);
+    }
+
     res.json(result);
-  }
-  else {
-    res.status(500);
-    res.send("An unknown issue appeared.")
   }
 });
 

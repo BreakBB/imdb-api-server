@@ -15,13 +15,6 @@ let requestCounter = 0;
 
 module.exports = {
   getData: async function getData(title, res) {
-    // Check title parameter
-    if (title === undefined) {
-      res.status(400);
-      res.send("400: Bad Request - Request has to include 'title' parameter");
-      return null;
-    }
-
     try {
       const result = await imdb.get(
         {"name": title},
@@ -44,11 +37,7 @@ module.exports = {
           process.exit();
         }
       }
-
-      // result is "err"
-      res.status(404);
-      res.json(err);
-      return null;
+      return err;
     }
     finally {
       requestCounter++;
